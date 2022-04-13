@@ -25,16 +25,11 @@ Citizen.CreateThread(function()
     end     
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(1000)
-        if Config.Command == true then
-            RegisterCommand(Config.CommandName, function()
-                openJobMenu()
-            end)
-        end
-    end     
-end)
+if Config.Command then
+    RegisterCommand(Config.CommandName, function()
+        openJobMenu()
+    end)
+end
 
 
 Citizen.CreateThread(function()
